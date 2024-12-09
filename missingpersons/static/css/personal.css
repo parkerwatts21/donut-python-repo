@@ -1,0 +1,13 @@
+.imgformat{
+    padding-left: 30px;
+    float: left;
+    margin-right: 80px;
+    margin-bottom: 10px;
+    position: sticky;
+  }
+  .imgformatr{
+    padding-left: 80px;
+    float: right;
+    margin-right: 80px;
+    margin-bottom: 10px;
+  }

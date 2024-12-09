@@ -1,0 +1,53 @@
+<!-- This is our landing page that has information about Human Trafficking and what we can do about it. -->
+<!-- We inherit from the base file, block content, and load static. -->
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+ <!-- Page Header-->
+ <header class="masthead" style="background-image: url('{% static 'img/HomePage.jpg' %}')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h2 style='font-size: 66px;'>Ending Human Trafficking</h2>
+                    <span class="subheading">Learn More and Join the Fight</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Main Content: This explains human trafficking and the gives important deatils on what we can do to educate ourselves and combat it. -->
+<div class="container" >
+    <div class="row gx-4 gx-lg-5 justify-content-center" style="text-align: center;">
+        <h2>What is Human Trafficking?</h2>
+        <br>
+        <p> Human trafficking is a heinous crime that involves the exploitation and coercion of individuals, typically for the purpose of forced labor, sexual exploitation, or other forms of exploitation. It is a form of modern-day slavery that affects millions of people worldwide, including women, men, and children. It is estimated that human trafficking is a $32 billion per year industry, second only to drug trafficking as the most profitable form of transnational crime.</p>
+        <hr>
+        <br>
+        <h2>How does Human Trafficking Happen?</h2>
+        <p> Human trafficking can occur within a country or across international borders, and victims are often lured or coerced into situations where they are exploited. This can include promising false job opportunities, marriage proposals, or other forms of deception to gain control over vulnerable individuals. Once trafficked, victims are often subjected to physical and emotional abuse, threats, and coercion to maintain control and prevent them from escaping.</p>
+        <hr>
+        <br>
+        <h2>Types of Human Trafficking</h2>
+        <p> • Sex Trafficking: a form of modern-day slavery in which individuals perform commercial sex through the use of force, fraud, or coercion.
+        <br> • Labor Trafficking: A form of modern-day slavery in which individuals perform labor or services through the use of force, fraud, or coercion.
+        <hr>
+        </p>
+        <h2>What we can do to Help</h2>
+        <p>If you suspect human trafficking or are a victim of human trafficking, it is important to seek help from appropriate authorities and service providers. You can contact the National Human Trafficking Hotline at 1-888-373-7888 or the Utah Hotline 801-200-3443 for help or report suspicious activity to local law enforcement. It is crucial to prioritize the safety and well-being of potential victims and take steps to combat human trafficking in Utah and beyond.</p>
+        <hr>
+        <br>
+        <h2>Human Trafficking in Utah</h2>
+        <p> With Utah geographically positioned at the crossroads of the west, thousands of victims are suspected to be moved through our state, with hundreds victimized within the state. In fact, Utah is in the top 10 states for reported human trafficking cases. Over 50% of identified girl victims in Utah are aged between 15 and 17 while about 40% of trafficked boys are under 12 years of age. Although every person, no matter age, it important, this project will only use those statistics for providing JSON data Missing Persons Cases Found ages 0 to 27 in the state of Utah. </p>
+        <br>
+        <!-- Button that takes you to the page with the data-->
+        <div class="text-center">
+            <form method="post" action="{% url 'data' %}">
+              {% csrf_token %}
+              <button class="btn btn-primary" type="submit">Click Here to See the Missing Persons Data</button>
+            </form>
+          </div>
+        </div>
+        <br> <br>
+
+{% endblock %}
