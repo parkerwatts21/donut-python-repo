@@ -1,29 +1,16 @@
-# In this file we created new view functions that render our HTML templates and imported render and model. 
-
 from django.shortcuts import render
-from django.http import HttpResponse
-from .models import MissingPerson
 
-# Create your views here.
+from .models import Doughnut
 
-#IndexPageView with that returns the index.html file
+def indexPageView(request):
+    # Fetch all doughnuts from the database
+    doughnuts = Doughnut.objects.all()
 
-def indexPageView(request) :
-    return render(request, 'personpages/index.html')
-
-def aboutPageView(request) :
-    return render(request, 'personpages/about.html')
-
-def dataPageView(request) :
-    db_persons = MissingPerson.objects.all()
+    # Dynamic context for the index page
     context = {
-        "data" : db_persons
+        "page_title": "Home",
+        "welcome_message": "Welcome to the Doughnut Shop! Explore our delicious options below.",
+        "data": doughnuts,  # Replacing hardcoded data with dynamic data
     }
-    return render(request, 'personpages/data.html', context)
 
-def detailPageView(request, id) :
-    person = MissingPerson.objects.get(id=id)
-    context = {
-        "data" : person
-    }
-    return render(request,'personpages/detailPage.html', context)
+    return render(request, 'personpages/index.html', context)

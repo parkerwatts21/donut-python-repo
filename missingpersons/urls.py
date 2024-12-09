@@ -16,8 +16,11 @@ Including another URLconf
 # Link the application’s urls.py file to the project’s urls.py
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('', include('personpages.urls')),
     path('admin/', admin.site.urls),
 ]
+
+urlpatterns += staticfiles_urlpatterns()

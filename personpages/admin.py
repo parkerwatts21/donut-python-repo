@@ -2,6 +2,6 @@
 # make changes and add data in the admin interface
 
 from django.contrib import admin
-from .models import MissingPerson
+from .models import Doughnut
 # Register your models here.
-admin.site.register(MissingPerson)
+admin.site.register(Doughnut)

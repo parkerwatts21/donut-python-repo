@@ -1,21 +1,13 @@
-# In this file we created our Model, MissingPerson, and the necessary fields for the Missing Person
-
 from django.db import models
-from datetime import datetime
 
 # Create your models here.
-class MissingPerson (models.Model) :
-    date_missing = models.DateField(default = datetime.today)
-    last_name = models.CharField(max_length=30)
-    first_name = models.CharField(max_length=30)
-    age_at_missing = models.IntegerField(default=0)
-    city = models.CharField(max_length=30)
-    state = models.CharField(max_length=5)
-    gender = models.CharField(max_length=5)
-    race = models.CharField(max_length=5)
+class Doughnut(models.Model):
+    name = models.CharField(max_length=255)  # Name of the doughnut
+    price = models.DecimalField(max_digits=5, decimal_places=2)  # Price with up to 2 decimal places
+    type = models.CharField(max_length=50)  # Type of doughnut (e.g., "cake", "glazed", etc.)
+
     class Meta:
-        db_table = 'MissingTable'
-def full_name(self):
-    return '%s %s' % (self.first_name, self.last_name)
-def __str__(self):
-    return (self.first_name + " " + self.last_name)  
+        db_table = 'doughnuts'  # Database table name
+
+    def __str__(self):
+        return f"{self.name} (${self.price})"

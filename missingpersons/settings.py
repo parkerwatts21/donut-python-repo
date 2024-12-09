@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-p&=8%*bh3zormzxc+sf11102uhwu4qp!fuij=*waefck+khnut
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -81,13 +81,14 @@ WSGI_APPLICATION = 'missingpersons.wsgi.application'
 # update the data base with the proper name and password
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'missingpersons',
-        'USER': 'postgres',
-        'PASSWORD': 'pw1007',
-        'HOST': 'localhost',
+        'ENGINE': 'mysql.connector.django',
+        'NAME': 'project2',
+        'USER': 'admin',
+        'PASSWORD': 'Password!',
+        'HOST': 'project2-db.cf620g4uq6vc.us-east-2.rds.amazonaws.com',
+        'PORT': '3306',
     }
-}  
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -130,7 +131,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # add the proper code to access the static files
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Optional for local development (not needed in production):
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'missingpersons/static')
+    os.path.join(BASE_DIR, 'missingpersons/static'),
 ]
